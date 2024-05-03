@@ -5,7 +5,7 @@ from streamlit_extras.switch_page_button import switch_page
 streamlit_style()
 
 # App Logo
-st.image("images/logo.png")
+st.image("images/transparent_logo.png")
 
 # Add header
 st.title("Zestimate - Forecasting Property Growth")
@@ -31,23 +31,23 @@ st.header(" ")
 
 def main():
 
-    depression, anxiety, stress = st.columns(3)
+    zhvi, stats, zori = st.columns(3)
 
     # Add call buttons to navigate pages
-    # with depression:
-    #     dep_btn = st.button("Do you feel Depressed?")
-    #     if dep_btn:
-    #         switch_page("Depression")
-    #
-    # with anxiety:
-    #     anx_btn = st.button("Do you feel Anxiety?")
-    #     if anx_btn:
-    #         switch_page("Anxiety")
-    #
-    # with stress:
-    #     stress_btn = st.button("Do you feel Stressed?")
-    #     if stress_btn:
-    #         switch_page("Stress")
+    with zhvi:
+        zhvi_btn = st.button("Predict ZHVI")
+        if zhvi_btn:
+            switch_page("ZHVI")
+
+    with stats:
+        stats_btn = st.button("Check Statistics")
+        if stats_btn:
+            switch_page("Statistics")
+
+    with zori:
+        zori_btn = st.button("Predict ZORI")
+        if zori_btn:
+            switch_page("ZORI")
 
 
 if __name__ == "__main__":

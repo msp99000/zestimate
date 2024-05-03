@@ -5,7 +5,7 @@ from streamlit_extras.switch_page_button import switch_page
 streamlit_style()
 
 # App Logo
-st.image("logo.png")
+st.image("images/logo.png")
 
 # Add header
 st.title("Zestimate - Forecasting Property Growth")

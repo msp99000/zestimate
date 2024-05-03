@@ -5,13 +5,11 @@ import streamlit as st
 
 def streamlit_style():
 
-    st.set_option("deprecation.showPyplotGlobalUse", False)
-
     st.set_page_config(
         initial_sidebar_state="collapsed",
         layout="centered",
         page_icon="logo.png",
-        page_title="MindScope",
+        page_title="Zestimate",
     )
 
     st.markdown(

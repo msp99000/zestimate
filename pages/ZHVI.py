@@ -41,9 +41,7 @@ def main():
         week = date_obj.isocalendar().week
         day = date_obj.day
         encoded_data = pipeline.transform([[region, state, type, year, month, week, day]])
-        
         model = xgb
-        
         prediction = model.predict(encoded_data)[0]
         return prediction
 

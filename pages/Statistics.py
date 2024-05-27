@@ -12,7 +12,7 @@ def main():
 
     # Horizontal Menu
     selected = option_menu(None, ["Home", "Statistics", "ZHVI", 'ZORI'], 
-                            icons=['house', 'cloud-upload', "list-task", 'gear'], 
+                            icons=['house', 'graph-up-arrow', "house-up", 'house-up-fill'], 
                             menu_icon="cast", default_index=1, orientation="horizontal")
     
     if selected == 'Home':

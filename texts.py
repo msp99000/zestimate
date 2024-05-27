@@ -52,23 +52,17 @@ def landing_content():
     3. **Model Training**: Using advanced machine learning algorithms, we train models to predict ZHVI and ZORI accurately.
     4. **Prediction and Visualization**: Access the predictions through our user-friendly web app and explore the data through interactive visualizations.
 
-    ![Process Flow](images/process_flow.png)
-
     ## Testimonials
 
     > "Zestimate has completely transformed the way we approach real estate investments. The accuracy and detail of the predictions are unmatched." - Jane Doe, Real Estate Investor
 
     > "As a property manager, Zestimate's insights have been invaluable in setting competitive rental prices and understanding market trends." - John Smith, Property Manager
 
-    ![Customer Testimonials](images/testimonials.png)
-
     ## Get Started Today
 
     Experience the future of real estate forecasting with Zestimate. Whether you're a real estate investor, property manager, or simply curious about market trends, Zestimate provides the insights you need.
 
     [Sign Up Now](https://zestimate.streamlit.app/signup) and start exploring the power of accurate real estate predictions.
-
-    ![Zestimate Dashboard](images/dashboard.png)
 
     ## Contact Us
 

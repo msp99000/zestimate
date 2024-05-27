@@ -1,7 +1,3 @@
-Here's a detailed `README.md` file for your project "Zestimate":
-
----
-
 # Zestimate
 
 Zestimate is a data-driven web application that utilizes data from Zillow to forecast and predict the Zillow Home Value Index (ZHVI) and Zillow Observed Rent Index (ZORI). The application is hosted at [zestimate.streamlit.app](https://zestimate.streamlit.app).

@@ -2,11 +2,14 @@ import streamlit as st
 from styles import streamlit_style
 from streamlit_extras.switch_page_button import switch_page
 from streamlit_option_menu import option_menu
-from texts import description
+from texts import description, landing_content
+from sidebar import sidebar_content
 
 streamlit_style()
 
 def main():
+
+    sidebar_content()
 
     # Horizontal Menu
     selected = option_menu(None, ["Home", "Statistics", "ZHVI", 'ZORI'], 
@@ -22,6 +25,8 @@ def main():
     if selected == 'ZORI':
         switch_page('ZORI')
 
+    st.subheader("")
+
     # App Logo
     st.write("")
     a, b, c = st.columns([1, 3, 1])
@@ -29,16 +34,21 @@ def main():
     with b:
         st.image("images/transparent_logo.png")
 
+
     # Add header
-    st.write("")
-    st.markdown(
-        "<h1 style='text-align: center; color: #47c099;'>Welcome to Zestimate !</h1>",
-        unsafe_allow_html=True,
-    )
-    st.write("")
+    st.subheader("")
+    st.title("Welcome to Zestimate")
+    # st.write("")
+    # st.markdown(
+    #     "<h1 style='text-align: center; color: #47c099;'>Welcome to Zestimate !</h1>",
+    #     unsafe_allow_html=True,
+    # )
+    # st.write("")
 
     st.write(description)
     st.write("")
+
+    landing_content()
 
 if __name__ == "__main__":
     main()

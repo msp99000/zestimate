@@ -2,10 +2,13 @@ import streamlit as st
 from styles import streamlit_style
 from streamlit_extras.switch_page_button import switch_page
 from streamlit_option_menu import option_menu
+from sidebar import sidebar_content
 
 streamlit_style()
 
 def main():
+
+    sidebar_content()
 
     # Horizontal Menu
     selected = option_menu(None, ["Home", "Statistics", "ZHVI", 'ZORI'], 

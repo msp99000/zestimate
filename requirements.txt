@@ -4,4 +4,4 @@ streamlit_extras==0.4.2
 streamlit_option_menu==0.3.12
 xgboost==2.0.3
 lightgbm
-sklearn
+scikit-learn

@@ -2,13 +2,12 @@ import streamlit as st
 
 """ ---- HIDE STREAMLIT STYLE ---- """
 
-
 def streamlit_style():
 
     st.set_page_config(
         initial_sidebar_state="collapsed",
         layout="centered",
-        page_icon="logo.png",
+        page_icon="images/logo.png",
         page_title="Zestimate",
     )
 

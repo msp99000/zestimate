@@ -21,6 +21,7 @@ def data_loader():
         zhvi['Month'] = zhvi.index.month
         zhvi['Week'] = zhvi.index.isocalendar().week
         zhvi['Day'] = zhvi.index.day
+        zhvi['Region'] = zhvi['Region'].str.split(',').str[0]
         logger.info("ZHVI data loaded successfully.")
     except FileNotFoundError:
         logger.error("ZHVI data file not found.")
@@ -37,6 +38,7 @@ def data_loader():
         zori['Month'] = zori.index.month
         zori['Week'] = zori.index.isocalendar().week
         zori['Day'] = zori.index.day
+        zori['Region'] = zori['Region'].str.split(',').str[0]
         logger.info("ZORI data loaded successfully.")
     except FileNotFoundError:
         logger.error("ZORI data file not found.")
@@ -78,7 +80,7 @@ def model_loader():
 
     try:
         with open("models/lgbm_zori.pkl", 'rb') as f:
-            lgbm = pickle.load(f)
+            lgbm_zori = pickle.load(f)
         logger.info("LightGBM model loaded successfully.")
     except FileNotFoundError:
         logger.error("LightGBM model file not found.")
@@ -89,7 +91,7 @@ def model_loader():
 
     try:
         with open("models/xgb_zori.pkl", 'rb') as f:
-            xgb = pickle.load(f)
+            xgb_zori = pickle.load(f)
         logger.info("XGBoost model loaded successfully.")
     except FileNotFoundError:
         logger.error("XGBoost model file not found.")
@@ -98,7 +100,7 @@ def model_loader():
         logger.error(f"An error occurred while loading the XGBoost model: {e}")
         raise
 
-    return lgbm_zhiv, xgb_zhvi, lgbm_zori, xgb_zori
+    return lgbm_zhvi, xgb_zhvi, lgbm_zori, xgb_zori
 
 def pipeline_loader():
     """

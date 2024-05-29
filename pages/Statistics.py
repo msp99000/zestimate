@@ -3,6 +3,9 @@ from styles import streamlit_style
 from streamlit_extras.switch_page_button import switch_page
 from streamlit_option_menu import option_menu
 from sidebar import sidebar_content
+import plotly.express as px
+import plotly.graph_objects as go
+from plots import plot_zhvi, plot_zori
 
 streamlit_style()
 
@@ -24,6 +27,12 @@ def main():
     if selected == 'ZORI':
         switch_page('ZORI')
 
+    st.write("")
+    st.subheader("Charts below show ZHVI/ZORI Statistics")
+    st.write("")
+
+    plot_zhvi()
+    plot_zori()
 
 if __name__ == "__main__":
     main()

@@ -29,28 +29,53 @@ Zestimate leverages historical real estate data from Zillow to provide accurate 
 
 ```
 Zestimate/
-├── data/
-│   ├── zhvi.pkl
-│   ├── zhvi.xlsx
-│   ├── zhvi_condo.csv
-│   ├── zhvi_one_bedroom.csv
-│   ├── zhvi_single_family.csv
-│   ├── zhvi_three_bedroom.csv
-│   ├── zhvi_two_bedroom.csv
-│   ├── zori.pkl
-│   ├── zori.xlsx
-│   ├── zori_multi_family.csv
-│   ├── zori_single_family.csv
-├── models/
-│   ├── lgbm.pkl
-│   ├── xgb.pkl
-├── notebooks/
-│   ├── modeling.ipynb
-│   ├── preprocessing.ipynb
-│   ├── statistics.ipynb
-├── .gitignore
-├── main.py
 ├── README.md
+├── __pycache__
+│   ├── plots.cpython-311.pyc
+│   ├── sidebar.cpython-311.pyc
+│   ├── styles.cpython-311.pyc
+│   ├── texts.cpython-311.pyc
+│   └── utils.cpython-311.pyc
+├── data
+│   ├── zhvi.pkl
+│   ├── zhvi.xlsx
+│   ├── zhvi_condo.csv
+│   ├── zhvi_one_bedroom.csv
+│   ├── zhvi_single_family.csv
+│   ├── zhvi_three_bedroom.csv
+│   ├── zhvi_two_bedroom.csv
+│   ├── zori.pkl
+│   ├── zori.xlsx
+│   ├── zori_multi_family.csv
+│   └── zori_single_family.csv
+├── images
+│   ├── logo.png
+│   ├── logo.svg
+│   ├── realestate.jpg
+│   ├── transparent_logo.png
+│   └── transparent_logo.svg
+├── main.py
+├── models
+│   ├── lgbm_zhvi.pkl
+│   ├── lgbm_zori.pkl
+│   ├── xgb_zhvi.pkl
+│   └── xgb_zori.pkl
+├── notebooks
+│   ├── modeling.ipynb
+│   ├── preprocessing.ipynb
+│   └── statistics.ipynb
+├── pages
+│   ├── Statistics.py
+│   ├── ZHVI.py
+│   └── ZORI.py
+├── plots.py
+├── project_structure.txt
+├── requirements.txt
+├── sidebar.py
+├── styles.py
+├── texts.py
+└── utils.py
+
 ```
 
 ## Installation

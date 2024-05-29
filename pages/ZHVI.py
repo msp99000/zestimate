@@ -28,18 +28,25 @@ def main():
     if selected == 'ZORI':
         switch_page('ZORI')
 
+    # Load Data
     df, _ = data_loader()
-    lgbm, xgb = model_loader()
-    pipeline = pipeline_loader()
+
+    # Load Model
+    lgbm_zhiv, _, _, _ = model_loader()
 
     # Streamlit app
-    def predict_zhvi(state, type, date):
-        region = 'N/A'
+    def predict_zhvi(region, type, date):
+        
         date_obj = pd.to_datetime(date)
-        year = date_obj.year
-        month = date_obj.month
-        week = date_obj.isocalendar().week
-        day = date_obj.day
+        input_data = pd.DataFrame({
+            'Region': [state],
+            'Type': [type],
+            'Year': [date_obj.year],
+            'Month': [date_obj.month],
+            'Week': [date_obj.week],
+            'Day': [date_obj.day]
+        })
+
         encoded_data = pipeline.transform([[region, state, type, year, month, week, day]])
         model = xgb
         prediction = model.predict(encoded_data)[0]

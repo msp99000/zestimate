@@ -8,7 +8,7 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 import pandas as pd
 from xgboost import XGBRegressor
-import pickle
+from lightgbm import LGBMRegressor
 
 streamlit_style()
 
@@ -61,6 +61,7 @@ def main():
         encoded_data = pipeline_zhvi.transform(input_data)
         model = lgbm_zhvi
         prediction = model.predict(encoded_data)[0]
+
         return prediction
 
     st.write("")

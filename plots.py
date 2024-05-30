@@ -3,7 +3,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
-# Assuming zhvi and zori data are loaded as DataFrames
+# Load DataFrames
 zhvi = pd.read_pickle('data/zhvi.pkl')
 zori = pd.read_pickle('data/zori.pkl')
 
@@ -102,12 +102,3 @@ def plot_zori():
     weekly_trend = zori.groupby('Week')['ZORI'].mean().reset_index()
     fig8 = px.line(weekly_trend, x="Week", y="ZORI", title="Weekly ZORI Trend")
     st.plotly_chart(fig8)
-
-# Create tabs for ZHVI and ZORI
-# tab1, tab2 = st.tabs(["ZHVI", "ZORI"])
-
-# with tab1:
-#     plot_zhvi()
-
-# with tab2:
-#     plot_zori()

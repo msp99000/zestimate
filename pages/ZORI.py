@@ -34,10 +34,10 @@ def main():
     _, df = data_loader()
 
     # Load Model
-    _, _, lgbm_zori, _ = model_loader()
+    _, _, _, _, lgbm_zori, xgb_zori, gb_zori, cb_zori = model_loader()
 
     # Streamlit app
-    def predict_zori(region, type, date):
+    def predict_zori(region, type, date, model):
 
         date_obj = pd.to_datetime(date)
         input_data = pd.DataFrame({
@@ -59,7 +59,7 @@ def main():
         X = pipeline_zori.fit_transform(df[categorical_cols + ['Year', 'Month', 'Week', 'Day']])
 
         encoded_data = pipeline_zori.transform(input_data)
-        model = lgbm_zori
+        model = model
         prediction = model.predict(encoded_data)[0]
         
         return prediction
@@ -70,10 +70,22 @@ def main():
     region = st.selectbox('Select Region', df['Region'].unique())
     type = st.selectbox('Select Type', df['Type'].unique())
     date = st.date_input('Select Date')
+    model_choice = st.selectbox('Select Model', ['Gradient Boosting', 'LightGBM', 'XGBoost', 'CatBoost'])
 
     st.write("")
     if st.button('Predict'):
-        predicted_zori = predict_zori(region, type, date)
+        if model_choice == 'Gradient Boosting':
+            predicted_zori = predict_zori(region, type, date, gb_zori)
+
+        if model_choice == 'LightGBM':
+            predicted_zori = predict_zori(region, type, date, lgbm_zori)
+
+        if model_choice == 'XGBoost':
+            predicted_zori = predict_zori(region, type, date, xgb_zori)
+
+        if model_choice == 'CatBoost':
+            predicted_zori = predict_zori(region, type, date, cb_zori)
+        
         st.write("")
         st.markdown(f"""
                         <div style="font-size:22px;">

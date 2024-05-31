@@ -34,10 +34,10 @@ def main():
     df, _ = data_loader()
 
     # Load Model
-    lgbm_zhvi, _, _, _ = model_loader()
+    lgbm_zhvi, xgb_zhvi, gb_zhvi, cb_zhvi, _, _, _, _ = model_loader()
 
     # Streamlit app
-    def predict_zhvi(region, type, date):
+    def predict_zhvi(region, type, date, model):
         
         date_obj = pd.to_datetime(date)
         input_data = pd.DataFrame({
@@ -59,7 +59,7 @@ def main():
         X = pipeline_zhvi.fit_transform(df[categorical_cols + ['Year', 'Month', 'Week', 'Day']])
 
         encoded_data = pipeline_zhvi.transform(input_data)
-        model = lgbm_zhvi
+        model = model
         prediction = model.predict(encoded_data)[0]
 
         return prediction
@@ -70,10 +70,22 @@ def main():
     region = st.selectbox('Select Region', df['Region'].unique())
     type = st.selectbox('Select Type', df['Type'].unique())
     date = st.date_input('Select Date')
+    model_choice = st.selectbox('Select Model', ['Gradient Boosting', 'LightGBM', 'XGBoost', 'CatBoost'])
 
     st.write("")
     if st.button('Predict'):
-        predicted_zhvi = predict_zhvi(region, type, date)
+        if model_choice == 'Gradient Boosting':
+            predicted_zhvi = predict_zhvi(region, type, date, gb_zhvi)
+
+        if model_choice == 'LightGBM':
+            predicted_zhvi = predict_zhvi(region, type, date, lgbm_zhvi)
+
+        if model_choice == 'XGBoost':
+            predicted_zhvi = predict_zhvi(region, type, date, xgb_zhvi)
+
+        if model_choice == 'CatBoost':
+            predicted_zhvi = predict_zhvi(region, type, date, cb_zhvi)
+        
         st.write("")
         st.markdown(f"""
                         <div style="font-size:22px;">

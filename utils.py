@@ -79,6 +79,28 @@ def model_loader():
         raise
 
     try:
+        with open("models/gb_zhvi.pkl", 'rb') as f:
+            gb_zhvi = pickle.load(f)
+        logger.info("Gradient Boosting model loaded successfully.")
+    except FileNotFoundError:
+        logger.error("Gradient Boosting model file not found.")
+        raise
+    except Exception as e:
+        logger.error(f"An error occurred while loading the Gradient Boosting model: {e}")
+        raise
+
+    try:
+        with open("models/catboost_zhvi.pkl", 'rb') as f:
+            cb_zhvi = pickle.load(f)
+        logger.info("CatBoost model loaded successfully.")
+    except FileNotFoundError:
+        logger.error("CatBoost model file not found.")
+        raise
+    except Exception as e:
+        logger.error(f"An error occurred while loading the CatBoost model: {e}")
+        raise
+
+    try:
         with open("models/lgbm_zori.pkl", 'rb') as f:
             lgbm_zori = pickle.load(f)
         logger.info("LightGBM model loaded successfully.")
@@ -100,7 +122,29 @@ def model_loader():
         logger.error(f"An error occurred while loading the XGBoost model: {e}")
         raise
 
-    return lgbm_zhvi, xgb_zhvi, lgbm_zori, xgb_zori
+    try:
+        with open("models/gb_zori.pkl", 'rb') as f:
+            gb_zori = pickle.load(f)
+        logger.info("Gradient Boosting model loaded successfully.")
+    except FileNotFoundError:
+        logger.error("Gradient Boosting model file not found.")
+        raise
+    except Exception as e:
+        logger.error(f"An error occurred while loading the Gradient Boosting model: {e}")
+        raise
+
+    try:
+        with open("models/catboost_zori.pkl", 'rb') as f:
+            cb_zori = pickle.load(f)
+        logger.info("CatBoost model loaded successfully.")
+    except FileNotFoundError:
+        logger.error("CatBoost model file not found.")
+        raise
+    except Exception as e:
+        logger.error(f"An error occurred while loading the CatBoost model: {e}")
+        raise
+
+    return lgbm_zhvi, xgb_zhvi, gb_zhvi, cb_zhvi, lgbm_zori, xgb_zori, gb_zori, cb_zori 
 
 def pipeline_loader():
     """

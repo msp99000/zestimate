@@ -38,12 +38,6 @@ def main():
     # Add header
     st.subheader("")
     st.title("Welcome to Zestimate")
-    # st.write("")
-    # st.markdown(
-    #     "<h1 style='text-align: center; color: #47c099;'>Welcome to Zestimate !</h1>",
-    #     unsafe_allow_html=True,
-    # )
-    # st.write("")
 
     st.write(description)
     st.write("")

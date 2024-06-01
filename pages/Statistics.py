@@ -7,9 +7,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plots import plot_zhvi, plot_zori
 
-# Set page configuration as the first Streamlit command
-st.set_page_config(page_title="My Streamlit App", layout="wide")
-
 # Apply custom style
 streamlit_style()
 

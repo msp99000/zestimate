@@ -7,30 +7,39 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plots import plot_zhvi, plot_zori
 
+# Set page configuration as the first Streamlit command
+st.set_page_config(page_title="My Streamlit App", layout="wide")
+
+# Apply custom style
 streamlit_style()
 
 def main():
-
+    # Display sidebar content
     sidebar_content()
 
     # Horizontal Menu
-    selected = option_menu(None, ["Home", "Statistics", "ZHVI", 'ZORI'], 
-                            icons=['house', 'graph-up-arrow', "house-up", 'house-up-fill'], 
-                            menu_icon="cast", default_index=1, orientation="horizontal")
+    selected = option_menu(
+        None, 
+        ["Home", "Statistics", "ZHVI", "ZORI"], 
+        icons=['house', 'graph-up-arrow', "house-up", 'house-up-fill'], 
+        menu_icon="cast", 
+        default_index=1, 
+        orientation="horizontal"
+    )
     
+    # Page navigation based on menu selection
     if selected == 'Home':
         switch_page('main')
-    
-    if selected == 'ZHVI':
+    elif selected == 'ZHVI':
         switch_page('ZHVI')
-    
-    if selected == 'ZORI':
+    elif selected == 'ZORI':
         switch_page('ZORI')
 
     st.write("")
     st.subheader("Charts below show ZHVI/ZORI Statistics")
     st.write("")
 
+    # Plot charts
     plot_zhvi()
     plot_zori()
 
